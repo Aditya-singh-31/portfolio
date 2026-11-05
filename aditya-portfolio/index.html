@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aditya Singh — Full Stack Developer</title>
+<meta name="description" content="Portfolio of Aditya Singh, B.Tech CSE student and Full Stack Developer. React, Node.js, FastAPI and AI projects.">
+<meta property="og:title" content="Aditya Singh — Full Stack Developer">
+<meta property="og:description" content="Building digital experiences that solve real problems.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%236d5efc'/%3E%3Ctext x='32' y='42' font-size='26' font-family='sans-serif' font-weight='700' text-anchor='middle' fill='white'%3EAS%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+:root{--bg:#0a0b10;--bg2:#10121a;--fg:#eceef6;--mut:#8b90a5;--line:#232638;--ac:#6d5efc;--ac2:#3fa7ff;--glass:rgba(16,18,26,.72);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f6f7fb;--bg2:#fff;--fg:#12131c;--mut:#5d6278;--line:#dde0ec;--ac:#5a49f0;--ac2:#1b86e6;--glass:rgba(255,255,255,.78);color-scheme:light}}
+:root[data-theme="light"]{--bg:#f6f7fb;--bg2:#fff;--fg:#12131c;--mut:#5d6278;--line:#dde0ec;--ac:#5a49f0;--ac2:#1b86e6;--glass:rgba(255,255,255,.78);color-scheme:light}
+:root[data-theme="dark"]{--bg:#0a0b10;--bg2:#10121a;--fg:#eceef6;--mut:#8b90a5;--line:#232638;--ac:#6d5efc;--ac2:#3fa7ff;--glass:rgba(16,18,26,.72);color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 Inter,system-ui,sans-serif;overflow-x:hidden;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;background-attachment:fixed;background-blend-mode:soft-light}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(60% 50% at 80% 0,color-mix(in srgb,var(--ac) 22%,transparent),transparent),var(--bg);opacity:.93;z-index:-1}
+h1,h2,h3{font-family:'Space Grotesk',Inter,sans-serif;line-height:1.08;margin:0;letter-spacing:-.025em}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--ac2);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+section{padding:96px 0}
+.mono{font-family:'JetBrains Mono',monospace}
+.h2{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:14px}
+.lead{color:var(--mut);max-width:62ch}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--fg);font:600 .94rem Inter;cursor:pointer;transition:transform .2s,border-color .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);border-color:var(--ac)}
+.btn.p{background:linear-gradient(135deg,var(--ac),var(--ac2));border-color:transparent;color:#fff;box-shadow:0 8px 28px -8px var(--ac)}
+.btn.p:hover{box-shadow:0 12px 34px -6px var(--ac)}
+.btn.sm{padding:9px 14px;font-size:.85rem}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+.chip{font:.78rem 'JetBrains Mono',monospace;padding:5px 10px;border:1px solid var(--line);border-radius:999px;color:var(--mut);background:var(--bg2)}
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+nav.sc{background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.nv{display:flex;align-items:center;justify-content:space-between;height:68px;gap:14px}
+.logo{display:grid;place-items:center;width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;font:700 .95rem 'Space Grotesk'}
+.links{display:flex;gap:4px}
+.links a{padding:8px 12px;border-radius:9px;color:var(--mut);font-size:.9rem;font-weight:500;transition:.2s}
+.links a:hover{color:var(--fg)}.links a.on{color:var(--fg);background:var(--bg2);box-shadow:inset 0 0 0 1px var(--line)}
+.ic{display:grid;place-items:center;width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer;transition:.2s}
+.ic:hover{border-color:var(--ac);transform:translateY(-2px)}
+.ic svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nr{display:flex;align-items:center;gap:8px}
+.burger{display:none}
+@media(max-width:900px){.links{position:fixed;inset:calc(68px + env(safe-area-inset-top,0px)) 0 auto 0;flex-direction:column;background:var(--bg2);padding:14px 22px 22px;border-bottom:1px solid var(--line);transform:translateY(-130%);transition:transform .35s cubic-bezier(.2,.8,.2,1);z-index:-1}.links.open{transform:none}.links a{padding:13px 10px;font-size:1.05rem}.burger{display:grid}.hide-m{display:none}}
+/* hero */
+#home{padding-top:140px;min-height:100svh;display:flex;align-items:center}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(2.5rem,7vw,5rem);margin:18px 0}
+.hero h1 span{background:linear-gradient(120deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.avail{display:inline-flex;align-items:center;gap:9px;font-size:.84rem;color:var(--mut);padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--bg2)}
+.dot{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 0 0 #34d39980;animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px transparent}}
+.term{border:1px solid var(--line);border-radius:16px;background:var(--glass);backdrop-filter:blur(10px);box-shadow:0 30px 80px -30px var(--ac);overflow:hidden;animation:float 7s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px)}}
+.tb{display:flex;gap:7px;padding:12px 14px;border-bottom:1px solid var(--line);align-items:center}
+.tb i{width:10px;height:10px;border-radius:50%;background:var(--line)}.tb i:first-child{background:#ff5f57}.tb i:nth-child(2){background:#febc2e}.tb i:nth-child(3){background:#28c840}
+.tb span{margin-left:8px;color:var(--mut);font:.76rem 'JetBrains Mono'}
+.tc{padding:18px;font:.84rem/1.8 'JetBrains Mono',monospace;min-height:250px;white-space:pre-wrap;word-break:break-word}
+.k{color:var(--ac2)}.s{color:#34d399}.cm{color:var(--mut)}
+.cur{display:inline-block;width:8px;height:1em;background:var(--ac2);vertical-align:-2px;animation:bl 1s steps(1) infinite}@keyframes bl{50%{opacity:0}}
+@media(max-width:900px){.hero{grid-template-columns:1fr}#home{padding-top:110px}}
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}.rv.in{opacity:1;transform:none}
+/* profile */
+.prof{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.ph{position:relative;width:100%;max-width:340px;margin:0 auto;aspect-ratio:1}
+.ph::before{content:"";position:absolute;inset:-10px;border-radius:50%;background:conic-gradient(from 0deg,var(--ac),var(--ac2),transparent 60%,var(--ac));animation:spin 10s linear infinite;filter:blur(2px)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ph .im{position:absolute;inset:0;border-radius:50%;background:var(--bg2);border:6px solid var(--bg);overflow:hidden;display:grid;place-items:center;transition:transform .5s}
+.ph:hover .im{transform:scale(1.03)}
+.ph img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.ph .im b{font:700 5rem 'Space Grotesk';background:linear-gradient(135deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.ph .avail{position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);white-space:nowrap}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:22px 0}
+.fact{padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--bg2);transition:.25s}.fact:hover{border-color:var(--ac);transform:translateY(-3px)}
+.fact small{display:block;color:var(--mut);font-size:.78rem;margin-bottom:3px}.fact b{font-weight:600;font-size:.94rem}
+@media(max-width:900px){.prof{grid-template-columns:1fr;gap:44px}}
+@media(max-width:520px){.facts{grid-template-columns:1fr}}
+/* about */
+.ab{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.ab p{color:var(--mut);margin:0 0 18px}
+.pts{display:grid;gap:0}.pts div{padding:18px 0;border-top:1px solid var(--line)}.pts div:last-child{border-bottom:1px solid var(--line)}.pts b{display:block;font-family:'Space Grotesk';font-size:1.1rem}.pts span{color:var(--mut);font-size:.92rem}
+@media(max-width:900px){.ab{grid-template-columns:1fr;gap:28px}}
+/* skills */
+.sk{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.sg{padding:24px;border:1px solid var(--line);border-radius:18px;background:var(--bg2);transition:.3s}
+.sg:hover{border-color:var(--ac);transform:translateY(-4px);box-shadow:0 20px 40px -24px var(--ac)}
+.sg h3{font-size:1.1rem;margin-bottom:16px;display:flex;gap:10px;align-items:center}
+.sg h3 svg{width:20px;height:20px;stroke:var(--ac2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.sg .row{gap:8px}.sg .chip{transition:.2s}.sg .chip:hover{color:var(--fg);border-color:var(--ac2)}
+@media(max-width:900px){.sk{grid-template-columns:1fr 1fr}}@media(max-width:600px){.sk{grid-template-columns:1fr}}
+/* projects */
+.pr{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:56px 0;border-top:1px solid var(--line)}
+.pr:nth-child(even) .pv{order:2}
+.pr.main .pv{box-shadow:0 40px 90px -40px var(--ac)}
+.pv{position:relative;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--bg2);cursor:pointer;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.pv:hover{transform:scale(1.02) rotate(-.4deg)}
+.pv .tb{background:var(--bg2)}
+.vis{aspect-ratio:16/10;padding:18px;display:grid;gap:10px;align-content:start;background:linear-gradient(150deg,color-mix(in srgb,var(--h) 26%,var(--bg2)),var(--bg2) 70%)}
+.vis .bar{height:12px;border-radius:6px;background:color-mix(in srgb,var(--h) 55%,transparent)}
+.vis .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.vis .grid i{aspect-ratio:3/4;border-radius:8px;background:color-mix(in srgb,var(--h) 35%,var(--bg));border:1px solid color-mix(in srgb,var(--h) 50%,transparent);animation:sh 3s ease-in-out infinite}
+.vis .grid i:nth-child(2n){animation-delay:.4s}.vis .grid i:nth-child(3n){animation-delay:.9s}
+@keyframes sh{50%{opacity:.55}}
+.vis .hl{font:700 clamp(1.1rem,3vw,1.6rem) 'Space Grotesk'}
+.vis .g2{display:grid;grid-template-columns:2fr 1fr;gap:8px}.vis .g2 i{height:70px;border-radius:8px;background:color-mix(in srgb,var(--h) 30%,var(--bg))}
+.vis .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.vis .cards i{aspect-ratio:1;border-radius:8px;background:color-mix(in srgb,var(--h) 40%,var(--bg));display:grid;place-items:center;font-size:1.1rem;font-style:normal}
+.vis .scan{position:relative;height:110px;border-radius:10px;border:1px dashed var(--h);overflow:hidden}.vis .scan::after{content:"";position:absolute;left:0;right:0;height:3px;background:var(--h);box-shadow:0 0 14px var(--h);animation:sc 2.4s ease-in-out infinite}@keyframes sc{0%,100%{top:0}50%{top:calc(100% - 3px)}}
+.meta{display:flex;gap:10px;align-items:center;color:var(--mut);font-size:.84rem;margin-bottom:12px}
+.meta b{color:var(--ac2);font:400 .84rem 'JetBrains Mono'}
+.st{padding:3px 10px;border-radius:999px;background:color-mix(in srgb,#34d399 15%,transparent);color:#34d399;font-size:.76rem;font-weight:600}
+.pr h3{font-size:clamp(1.7rem,4vw,2.5rem);cursor:pointer;margin-bottom:14px;transition:color .2s}.pr h3:hover{color:var(--ac2)}
+.pr p{color:var(--mut);margin:0 0 16px}
+.ft{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:6px;font-size:.92rem}.ft li{padding-left:20px;position:relative;color:var(--mut)}.ft li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;background:var(--ac2)}
+.note{font-size:.8rem;color:var(--mut);font-style:italic;margin:0 0 16px}
+.stack{margin-bottom:22px}
+@media(max-width:900px){.pr{grid-template-columns:1fr;gap:26px;padding:44px 0}.pr:nth-child(even) .pv{order:0}}
+/* modal */
+.md{position:fixed;inset:0;z-index:80;background:rgba(5,6,10,.7);backdrop-filter:blur(6px);display:none;align-items:flex-end;justify-content:center;padding:0}
+.md.open{display:flex;animation:fi .25s}@keyframes fi{from{opacity:0}}
+.sheet{width:100%;max-width:820px;max-height:92svh;overflow:auto;background:var(--bg2);border:1px solid var(--line);border-radius:22px 22px 0 0;padding:28px 24px calc(28px + env(safe-area-inset-bottom,0px));animation:up .4s cubic-bezier(.2,.8,.2,1)}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+@media(min-width:700px){.md{align-items:center;padding:24px}.sheet{border-radius:22px}}
+.sheet h3{font-size:2rem;margin:10px 0 14px}.sheet h4{font:600 .95rem Inter;margin:22px 0 8px}
+/* ai */
+.fab{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:60;display:flex;gap:10px;align-items:center;padding:13px 18px;border-radius:999px;border:0;background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;font:600 .9rem Inter;cursor:pointer;box-shadow:0 12px 34px -8px var(--ac);transition:transform .2s}
+.fab:hover{transform:translateY(-3px)}.fab svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.chat{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(78px,calc(env(safe-area-inset-bottom) + 70px));z-index:70;width:min(390px,calc(100vw - 28px));height:min(560px,calc(100svh - 120px));display:none;flex-direction:column;border:1px solid var(--line);border-radius:20px;background:var(--bg2);box-shadow:0 30px 80px -20px rgba(0,0,0,.6);overflow:hidden}
+.chat.open{display:flex;animation:up .35s cubic-bezier(.2,.8,.2,1)}
+.ch{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line)}.ch b{font-family:'Space Grotesk'}.ch small{display:block;color:var(--mut);font-size:.75rem}
+.msgs{flex:1;overflow:auto;padding:16px;display:flex;flex-direction:column;gap:12px}
+.m{max-width:86%;padding:10px 14px;border-radius:16px;font-size:.9rem;line-height:1.5;animation:fi .3s}.m time{display:block;font-size:.68rem;opacity:.6;margin-top:4px}
+.m.b{background:var(--bg);border:1px solid var(--line);border-bottom-left-radius:4px;align-self:flex-start}
+.m.u{background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.typ{display:flex;gap:4px;padding:12px 14px;align-self:flex-start;background:var(--bg);border:1px solid var(--line);border-radius:16px}.typ i{width:6px;height:6px;border-radius:50%;background:var(--mut);animation:bn 1.1s infinite}.typ i:nth-child(2){animation-delay:.15s}.typ i:nth-child(3){animation-delay:.3s}@keyframes bn{40%{transform:translateY(-5px)}}
+.sug{display:flex;gap:6px;flex-wrap:wrap;padding:0 16px 10px}.sug button{cursor:pointer;color:var(--fg);transition:.2s}.sug button:hover{border-color:var(--ac2)}
+.cf{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}
+input,textarea{width:100%;padding:12px 14px;border-radius:11px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font:inherit;font-size:16px}
+input:focus,textarea:focus{border-color:var(--ac);outline:none}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;margin-top:22px}
+.gt{position:relative;margin:0;aspect-ratio:4/5;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--bg2);cursor:pointer;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s}
+.gt:hover{transform:translateY(-6px);border-color:var(--ac);box-shadow:0 24px 50px -26px var(--ac)}
+.gt img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}.gt:hover img{transform:scale(1.06)}
+.gt figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 14px;font-size:.88rem;color:#fff;background:linear-gradient(transparent,rgba(5,6,10,.8))}
+.ph0{height:100%;display:grid;place-content:center;gap:6px;text-align:center;color:var(--mut);font-size:.85rem;background:linear-gradient(150deg,color-mix(in srgb,var(--ac) 20%,var(--bg2)),var(--bg2))}.ph0 b{font:700 3rem 'Space Grotesk';background:linear-gradient(135deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+@media(max-width:600px){.gal{grid-template-columns:1fr 1fr}}
+/* contact */
+.ct{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+form{display:grid;gap:14px}label{font-size:.85rem;font-weight:500;display:grid;gap:6px}.er{color:#f87171;font-size:.78rem;min-height:1em;font-weight:400}
+#fm{padding:12px 14px;border-radius:11px;font-size:.9rem;display:none}#fm.ok{display:block;background:color-mix(in srgb,#34d399 14%,transparent);color:#34d399}#fm.bad{display:block;background:color-mix(in srgb,#f87171 14%,transparent);color:#f87171}
+.soc{display:grid;gap:12px;margin-top:26px}.soc a{display:flex;gap:12px;align-items:center;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--bg2);transition:.25s}.soc a:hover{border-color:var(--ac);transform:translateX(5px)}.soc svg{width:20px;height:20px;fill:none;stroke:var(--ac2);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:900px){.ct{grid-template-columns:1fr;gap:36px}}
+footer{border-top:1px solid var(--line);padding:44px 0 90px;background:var(--bg2)}
+.fg{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:center}
+.fg nav{position:static;display:flex;flex-wrap:wrap;gap:16px;background:none;color:var(--mut);font-size:.9rem;padding:0;border:0}.fg nav a:hover{color:var(--fg)}
+.cp{color:var(--mut);font-size:.82rem;margin-top:26px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav id="nav"><div class="wrap nv">
+<a href="#home" class="logo" aria-label="Aditya Singh, home">AS</a>
+<div class="links" id="links">
+<a href="#home">Home</a><a href="#profile">Profile</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
+<div class="nr"><span id="navsoc" class="row hide-m" style="gap:8px"></span>
+<a href="#contact" class="btn p sm hide-m">Let’s Talk</a>
+<button class="ic" id="theme" aria-label="Toggle theme"></button>
+<button class="ic burger" id="burger" aria-label="Open menu" aria-expanded="false"></button></div>
+</div></nav>
+
+<main>
+<section id="home"><div class="wrap hero">
+<div class="rv in">
+<span class="avail"><span class="dot"></span><span id="avtxt"></span></span>
+<h1>Building digital experiences that <span>solve real problems.</span></h1>
+<p class="lead"><b style="color:var(--fg)">Hi, I’m Aditya Singh.</b> I’m a Computer Science Engineering student and aspiring Full Stack Developer passionate about building modern web applications, intuitive user experiences, and AI-powered solutions.</p>
+<div class="row" style="margin:28px 0 22px"><a class="btn p" href="#projects">Explore Projects</a><a class="btn" href="#profile">View Profile</a><a class="btn" id="resume" hidden download>Download Resume</a></div>
+<div class="row" id="herosoc"></div>
+</div>
+<div class="term rv in" aria-hidden="true"><div class="tb"><i></i><i></i><i></i><span>aditya@portfolio ~ </span></div><div class="tc" id="tc"></div></div>
+</div></section>
+
+<section id="profile"><div class="wrap prof">
+<div class="ph rv"><div class="im"><img id="pimg" alt="Portrait of Aditya Singh" hidden><b>AS</b><span class="ph1" style="color:var(--mut);font-size:.8rem">Your photo here</span></div><span class="avail"><span class="dot"></span><span class="avt"></span></span></div>
+<div class="rv"><h2 class="h2">Aditya Singh</h2>
+<p class="lead" style="margin-bottom:6px"><b style="color:var(--fg)">Full Stack Developer</b> · B.Tech in Computer Science Engineering</p>
+<p class="lead">Sagar Institute of Research and Technology (SIRT), Bhopal · Class of 2027. I build full-stack web apps with React, Node.js and Python, and I’m exploring how AI can make them more useful.</p>
+<div class="facts">
+<div class="fact"><small>Education</small><b>B.Tech CSE, 2027</b></div>
+<div class="fact"><small>Interests</small><b>Web apps, UX, AI</b></div>
+<div class="fact"><small>Current technologies</small><b>React, Node, FastAPI</b></div>
+<div class="fact"><small>Focus</small><b>Building real projects</b></div></div>
+<div class="row" id="profsoc"></div></div>
+</div></section>
+
+<section id="about"><div class="wrap ab">
+<div class="rv"><h2 class="h2">A little about me.</h2>
+<p>I’m a Computer Science Engineering student passionate about developing modern web applications and exploring the intersection of technology, design, and artificial intelligence.</p>
+<p>I enjoy working with React.js, Node.js, Express.js, and MongoDB to build full-stack applications. I focus on creating clean interfaces, developing practical backend solutions, and continuously improving my development skills through real-world projects.</p>
+<p>My goal is to become a skilled Full Stack Developer and contribute to meaningful technology products.</p></div>
+<div class="pts rv">
+<div><b>Education</b><span>B.Tech in Computer Science Engineering, SIRT Bhopal.</span></div>
+<div><b>Development interests</b><span>Modern web apps, clean interfaces, AI-powered solutions.</span></div>
+<div><b>Learning by building</b><span>Skills grow through real-world projects.</span></div>
+<div><b>Problem-solving mindset</b><span>Practical backend solutions over clever abstractions.</span></div></div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+<h2 class="h2 rv">Technical skills</h2><p class="lead rv">Technologies I’ve used or studied, grouped by area.</p>
+<div class="sk" id="sk"></div></div></section>
+
+<section id="projects"><div class="wrap">
+<h2 class="h2 rv">Featured projects</h2><p class="lead rv">Five deployed projects. Select a title or preview for the full write-up.</p>
+<div id="pl"></div></div></section>
+
+<section id="contact"><div class="wrap ct">
+<div class="rv"><h2 class="h2">Have a project in mind? Let’s build something meaningful.</h2>
+<div class="soc" id="csoc"></div></div>
+<form id="form" class="rv" novalidate>
+<label>Name<input name="name" autocomplete="name"><span class="er"></span></label>
+<label>Email<input name="email" type="email" autocomplete="email"><span class="er"></span></label>
+<label>Subject<input name="subject"><span class="er"></span></label>
+<label>Message<textarea name="message" rows="5"></textarea><span class="er"></span></label>
+<button class="btn p" id="sb" style="justify-content:center">Send message</button>
+<div id="fm" role="status"></div></form>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+<div class="fg"><div style="display:flex;gap:14px;align-items:center"><span class="logo">AS</span><div><b>Aditya Singh</b><br><span style="color:var(--mut);font-size:.88rem">Full Stack Developer</span></div></div>
+<nav aria-label="Footer"><a href="#home">Home</a><a href="#profile">Profile</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav>
+<div class="row" id="fsoc"></div></div>
+<div class="cp"><span>© <span id="yr"></span> Aditya Singh</span><a href="#home" class="btn sm" id="top">Back to top ↑</a></div></div></footer>
+
+<div class="md" id="md" role="dialog" aria-modal="true" aria-label="Project details"><div class="sheet" id="sheet"></div></div>
+
+<button class="fab" id="fab" aria-expanded="false" aria-controls="chat"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Ask Aditya AI</button>
+<div class="chat" id="chat" role="dialog" aria-label="Ask Aditya AI">
+<div class="ch"><div><b>Ask Aditya AI</b><small id="mode">Demo mode · answers from verified portfolio info</small></div><div class="row" style="gap:6px"><button class="ic" id="clr" aria-label="Clear chat" style="width:34px;height:34px">⟲</button><button class="ic" id="cx" aria-label="Close chat" style="width:34px;height:34px">✕</button></div></div>
+<div class="msgs" id="msgs" aria-live="polite"></div><div class="sug" id="sug"></div>
+<form class="cf" id="cform"><input id="ci" placeholder="Ask about Aditya…" aria-label="Your question" autocomplete="off"><button class="btn p sm">Send</button></form></div>
+
+<script>
+/* ===== EDIT ME: central configuration. Empty values hide the matching button. ===== */
+const CONFIG={
+ availability:{open:true,text:"Open to internships & opportunities"},
+ email:"adityasinghrajput2038@gmail.com",email2:"adityasinghrajput2950@gmail.com",phone:"+91 62616 02969",phoneTel:"+916261602969",                                   // your email address
+ github:"https://github.com/Aditya-singh-31", // taken from your PEBLO repo URL; change if needed
+ linkedin:"",                                // your LinkedIn URL
+ profileImage:"images/profile.jpg",           // used only if the file loads
+ resume:"resume/Aditya-Singh-Resume.pdf",                                  // e.g. "resume/Aditya-Singh-Resume.pdf"
+ aiEndpoint:""                               // backend URL for live AI (empty = demo mode)
+};
+const SKILLS={
+ "Frontend":["HTML5","CSS3","JavaScript","React.js","TypeScript","Tailwind CSS"],
+ "Backend":["Node.js","Express.js","Python","FastAPI","Flask","REST APIs"],
+ "Database":["MongoDB","Mongoose","PostgreSQL"],
+ "Auth & Security":["JWT","bcrypt","Cookie-based auth","Google OAuth (where implemented)"],
+ "AI & Machine Learning":["Python","TensorFlow","Keras","AI model integration"],
+ "Tools & Platforms":["Git","GitHub","VS Code","Postman","Netlify","Render","Vite"]};
+const SK_ICON={"Frontend":"M16 18l6-6-6-6M8 6l-6 6 6 6","Backend":"M4 4h16v6H4zM4 14h16v6H4zM8 7h.01M8 17h.01","Database":"M12 3c4.4 0 8 1.1 8 2.5S16.4 8 12 8 4 6.9 4 5.5 7.6 3 12 3zM4 5.5v13C4 19.9 7.6 21 12 21s8-1.1 8-2.5v-13","Auth & Security":"M12 2l8 3v6c0 5-3.4 9-8 11-4.6-2-8-6-8-11V5z","AI & Machine Learning":"M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8","Tools & Platforms":"M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"};
+/* Project data: add, remove or edit entries here. A missing url hides its button. */
+const PROJECTS=[
+{id:"peblo",n:"01",cat:"OTT Streaming Platform",title:"PEBLO TV",status:"Deployed",h:"#6d5efc",vis:"ott",main:true,
+ overview:"PEBLO TV is a full-stack OTT platform designed to provide a modern entertainment browsing experience. It features a responsive viewer interface where users can explore shows, browse categories, search for content, and view show details and episode information. The platform includes a dedicated Content Management System (CMS) for managing entertainment content, supported by a FastAPI backend and PostgreSQL database. The public Viewer also includes a sample catalogue for demonstration purposes.",
+ features:["Modern, responsive OTT-style interface","Featured shows and categorized content sections","Search for shows and episodes","Category and language-based filtering","Show detail pages with seasons and episodes","Dedicated CMS for content management","REST API integration using FastAPI","PostgreSQL database integration","Deployed frontend and backend services"],
+ stack:["React.js","TypeScript","Vite","CSS","Python","FastAPI","PostgreSQL","Neon","Netlify","Render","Git","GitHub"],
+ links:[{l:"Visit Viewer",u:"https://peblo-viewer.netlify.app",p:1},{l:"Visit CMS",u:"https://peblo-cms.netlify.app",p:1},{l:"API Documentation",u:"https://peblo-api-e50h.onrender.com/docs"},{l:"GitHub Repository",u:"https://github.com/Aditya-singh-31/peblo-tv-mini"}]},
+{id:"ecoai",n:"02",cat:"AI-Powered Smart Waste Management",title:"EcoCycle AI",status:"Deployed",h:"#34d399",vis:"scan",
+ overview:"EcoCycle AI is an intelligent waste management platform designed to make waste classification, recycling, and disposal easier through Artificial Intelligence. Users upload images of waste materials and receive classification results along with recycling recommendations and proper disposal guidance. It provides an AI Scanner, an analytics dashboard, waste categorization, and disposal guidelines to encourage sustainable waste management.",
+ features:["AI-powered waste image scanning and classification","Image upload with JPG, PNG and WEBP support","Recycling recommendations and disposal instructions","Analytics dashboard for waste management insights","Guidelines for plastic, organic, paper, glass, metal, e-waste and hazardous waste","Responsive interface","Environmental impact and sustainability insights"],
+ stack:["React.js","HTML","CSS","JavaScript","Python","TensorFlow","Keras","Flask","Netlify"],
+ links:[{l:"Live Demo",u:"https://ecocylce-ai.netlify.app/",p:1},{l:"GitHub Repository",u:""}]},
+{id:"game",n:"03",cat:"Interactive Browser Game",title:"Game Card",status:"Deployed",h:"#f59e0b",vis:"game",
+ overview:"Game Card is a browser-based memory game designed to provide an interactive gaming experience. It challenges players to test their memory, concentration, and observation skills through a card-based interface, with a score counter to track progress.",
+ features:["Interactive memory game interface","Card-based gameplay","Score tracking system","User-friendly design","Browser-based gameplay"],stack:[],
+ links:[{l:"Live Demo",u:"https://gamecrd.netlify.app/",p:1},{l:"GitHub Repository",u:""}]},
+{id:"patek",n:"04",cat:"Luxury Watch E-commerce Website",title:"Patek Philippe",status:"Deployed",h:"#c9a96a",vis:"watch",
+ overview:"A premium luxury watch website inspired by high-end Swiss watch brands, focused on elegant visual presentation, luxury branding, and product showcasing. It features a landing page, featured watch collections, product cards with pricing, brand storytelling, and sections for customer service, warranty, shipping, and returns.",
+ features:["Premium and elegant design","Featured product hero section","Luxury watch collection showcase","Product cards with pricing","Brand history and manufacturing information","Customer service and warranty sections","Shipping and return information","Responsive navigation and layout"],stack:[],
+ links:[{l:"Live Demo",u:"https://patekphillipe.netlify.app/",p:1},{l:"GitHub Repository",u:""}]},
+{id:"eco",n:"05",cat:"Smart Waste Management System",title:"EcoCycle",status:"Deployed",h:"#22c55e",vis:"dash",
+ overview:"EcoCycle is a smart waste management platform developed to promote sustainable disposal, recycling, and environmental awareness. It helps users identify types of waste, understand proper disposal methods, and learn about recycling practices. It includes a waste scanner, recycling process explanation, analytics dashboard, government waste management guidelines, and awareness resources, and highlights the Bhopal bioremediation project.",
+ features:["Waste scanner with image upload","Waste identification and disposal guidance","Recycling process visualization","Waste management dashboard","Segregation and recycling information","Government waste management guidelines","Environmental awareness and upcycling resources","Government survey highlights and success stories","Bhopal landfill bioremediation case study"],stack:[],
+ links:[{l:"Live Demo",u:"https://minorprojectsirt.netlify.app/",p:1},{l:"GitHub Repository",u:""}]}];
+
+/* ===== helpers ===== */
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const P={sun:"M12 3v2M12 19v2M5 5l1.5 1.5M17.5 17.5L19 19M3 12h2M19 12h2M5 19l1.5-1.5M17.5 6.5L19 5M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z",moon:"M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z",menu:"M4 6h16M4 12h16M4 18h16",x:"M18 6L6 18M6 6l12 12",gh:"M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-1-2.6c3.1-.3 6.4-1.5 6.4-7a5.4 5.4 0 0 0-1.5-3.8 5 5 0 0 0-.1-3.7s-1.2-.4-3.9 1.4a13.4 13.4 0 0 0-7 0C6.2 2.8 5 3.2 5 3.2a5 5 0 0 0-.1 3.7A5.4 5.4 0 0 0 3.5 10.7c0 5.4 3.3 6.6 6.4 7a3.4 3.4 0 0 0-1 2.6V22",li:"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z",mail:"M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM22 6l-10 7L2 6",ext:"M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"};
+const svg=(d,c="")=>`<svg viewBox="0 0 24 24" class="${c}" aria-hidden="true"><path d="${d}"/></svg>`;
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ext=(u,t,cls="btn")=>`<a class="${cls}" href="${u}" target="_blank" rel="noopener noreferrer">${t}</a>`;
+const root=document.documentElement;
+
+/* theme */
+function setTheme(t){root.dataset.theme=t;try{localStorage.setItem("theme",t)}catch(e){}$("#theme").innerHTML=svg(t==="dark"?P.sun:P.moon)}
+let t0;try{t0=localStorage.getItem("theme")}catch(e){}
+setTheme(t0||(matchMedia("(prefers-color-scheme:light)").matches?"light":"dark"));
+$("#theme").onclick=()=>setTheme(root.dataset.theme==="dark"?"light":"dark");
+
+/* social + availability + resume */
+const soc=[["gh",CONFIG.github,"GitHub"],["li",CONFIG.linkedin,"LinkedIn"],["mail",CONFIG.email&&"mailto:"+CONFIG.email,"Email"]].filter(s=>s[1]);
+const icons=()=>soc.map(([i,u,n])=>`<a class="ic" href="${u}" ${u.startsWith("mailto")?"":'target="_blank" rel="noopener noreferrer"'} aria-label="${n}">${svg(P[i])}</a>`).join("");
+["navsoc","herosoc","profsoc","fsoc"].forEach(id=>$("#"+id).innerHTML=soc.filter(s=>id!=="navsoc"||s[0]!=="mail").map(([i,u,n])=>id==="navsoc"||id==="fsoc"?`<a class="ic" href="${u}" ${u.startsWith("mailto")?"":'target="_blank" rel="noopener noreferrer"'} aria-label="${n}">${svg(P[i])}</a>`:`<a class="btn sm" href="${u}" ${u.startsWith("mailto")?"":'target="_blank" rel="noopener noreferrer"'}>${svg(P[i],"")}${n}</a>`).join(""));
+$$("#herosoc svg,#profsoc svg").forEach(s=>s.style.cssText="width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round");
+$("#csoc").innerHTML=soc.map(([i,u,n])=>`<a href="${u}" ${u.startsWith("mailto")?"":'target="_blank" rel="noopener noreferrer"'}>${svg(P[i])}<span>${n==="Email"?CONFIG.email:n}</span></a>`).join("")||`<p class="lead">Add your email, GitHub and LinkedIn in CONFIG to show contact links here.</p>`;
+{const L=[];if(CONFIG.phoneTel)L.push(["M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z","tel:"+CONFIG.phoneTel,CONFIG.phone]);[CONFIG.email,CONFIG.email2].filter(Boolean).forEach(m=>L.push([P.mail,"mailto:"+m,m]));if(CONFIG.github)L.push([P.gh,CONFIG.github,"GitHub"]);if(CONFIG.linkedin)L.push([P.li,CONFIG.linkedin,"LinkedIn"]);$("#csoc").innerHTML=L.map(([d,u,n])=>`<a href="${u}" ${/^https/.test(u)?'target="_blank" rel="noopener noreferrer"':""}>${svg(d)}<span>${n}</span></a>`).join("")}
+$("#avtxt").textContent=$(".avt").textContent=CONFIG.availability.text;
+if(!CONFIG.availability.open)$$(".dot").forEach(d=>d.style.background="var(--mut)");
+if(CONFIG.resume){const r=$("#resume");r.href=CONFIG.resume;r.hidden=false}
+const im=$("#pimg");im.onload=()=>{im.hidden=false;$$(".ph .im b,.ph .im .ph1").forEach(x=>x.hidden=true)};im.src=CONFIG.profileImage;
+$("#yr").textContent=new Date().getFullYear();
+$("#burger").innerHTML=svg(P.menu);
+
+/* nav */
+const nav=$("#nav"),lk=$("#links"),bg=$("#burger");
+addEventListener("scroll",()=>nav.classList.toggle("sc",scrollY>20),{passive:true});
+bg.onclick=()=>{const o=lk.classList.toggle("open");bg.setAttribute("aria-expanded",o);bg.innerHTML=svg(o?P.x:P.menu)};
+$$("#links a").forEach(a=>a.onclick=()=>{lk.classList.remove("open");bg.innerHTML=svg(P.menu);bg.setAttribute("aria-expanded",false)});
+const secs=$$("main section"),io2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)$$("#links a").forEach(a=>a.classList.toggle("on",a.hash==="#"+e.target.id))}),{rootMargin:"-45% 0px -50% 0px"});
+secs.forEach(s=>io2.observe(s));
+
+/* terminal */
+const lines=[["<span class=cm>// who am i</span>"],["<span class=k>const</span> aditya = {"],["  role: <span class=s>'Full Stack Developer'</span>,"],["  study: <span class=s>'B.Tech CSE · 2027'</span>,"],["  stack: [<span class=s>'React'</span>, <span class=s>'Node'</span>, <span class=s>'FastAPI'</span>],"],["  building: <span class=s>'things that solve real problems'</span>"],["};"],["<span class=k>$</span> npm run build <span class=cur></span>"]];
+const tc=$("#tc");
+if(matchMedia("(prefers-reduced-motion:reduce)").matches)tc.innerHTML=lines.map(l=>l[0]).join("\n");
+else{let i=0;(function n(){if(i<lines.length){tc.innerHTML+=(i?"\n":"")+lines[i++][0];setTimeout(n,420)}})()}
+
+/* skills */
+$("#sk").innerHTML=Object.entries(SKILLS).map(([g,a],i)=>`<div class="sg rv" style="transition-delay:${i*70}ms"><h3>${svg(SK_ICON[g])}${g}</h3><div class="row">${a.map(x=>`<span class="chip">${esc(x)}</span>`).join("")}</div></div>`).join("");
+
+/* projects */
+const VIS={ott:`<div class=bar style="width:35%"></div><div class=hl>Featured tonight</div><div class=grid><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>`,
+scan:`<div class=hl>AI Scanner</div><div class=scan></div><div class=g2><i></i><i></i></div>`,
+game:`<div class=hl>Score: 0</div><div class=cards><i>?</i><i>?</i><i>?</i><i>?</i><i>?</i><i>?</i><i>?</i><i>?</i></div>`,
+watch:`<div class=hl style="font-weight:500;letter-spacing:.2em;font-size:1rem">COLLECTION</div><div class=g2><i style="height:110px;border-radius:50%;width:110px"></i><i style="background:none"></i></div><div class=bar style="width:55%"></div>`,
+dash:`<div class=hl>Waste dashboard</div><div class=g2><i></i><i></i></div><div class=grid style="grid-template-columns:repeat(3,1fr)"><i style="aspect-ratio:2"></i><i style="aspect-ratio:2"></i><i style="aspect-ratio:2"></i></div>`};
+const btns=p=>p.links.filter(x=>x.u).map(x=>ext(x.u,x.l+(x.p?"":""),x.p?"btn p":"btn")).join("");
+const stk=p=>p.stack.length?`<div class="row stack">${p.stack.map(s=>`<span class=chip>${esc(s)}</span>`).join("")}</div>`:`<p class=note>Tech stack to be confirmed from source code.</p>`;
+const vis=p=>`<div class="pv" tabindex="0" role="button" aria-label="View details for ${p.title}" data-id="${p.id}"><div class=tb><i></i><i></i><i></i><span>${p.title.toLowerCase().replace(/ /g,"-")}</span></div><div class="vis" style="--h:${p.h}">${VIS[p.vis]}</div></div>`;
+$("#pl").innerHTML=PROJECTS.map(p=>`<article class="pr rv ${p.main?"main":""}">${vis(p)}<div><div class=meta><b>${p.n}</b><span>${p.cat}</span><span class=st>${p.status}</span></div><h3 data-id="${p.id}" tabindex=0 role=button>${p.title}</h3><p>${esc(p.overview.split(". ").slice(0,2).join(". "))}.</p><ul class=ft>${p.features.slice(0,4).map(f=>`<li>${esc(f)}</li>`).join("")}</ul>${stk(p)}<div class=row>${btns(p)}<button class=btn data-id="${p.id}">View Details</button></div></div></article>`).join("");
+const md=$("#md"),sh=$("#sheet");let lastF;
+function open(id){const p=PROJECTS.find(x=>x.id===id);lastF=document.activeElement;
+sh.innerHTML=`<button class=btn id=bk>← Back to Projects</button><div class=meta style="margin-top:22px"><b>${p.n}</b><span>${p.cat}</span><span class=st>${p.status}</span></div><h3>${p.title}</h3><p class=lead>${esc(p.overview)}</p><h4>Main features</h4><ul class=ft>${p.features.map(f=>`<li>${esc(f)}</li>`).join("")}</ul><h4>Technology stack</h4>${stk(p)}<div class=row>${btns(p)}</div>`;
+md.classList.add("open");document.body.style.overflow="hidden";$("#bk").focus();$("#bk").onclick=close}
+function close(){md.classList.remove("open");document.body.style.overflow="";lastF&&lastF.focus()}
+document.addEventListener("click",e=>{const t=e.target.closest("[data-id]");if(t)open(t.dataset.id);else if(e.target===md)close()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){close();$("#chat").classList.remove("open");$("#fab").setAttribute("aria-expanded",false)}if((e.key==="Enter"||e.key===" ")&&e.target.matches("[data-id]")){e.preventDefault();open(e.target.dataset.id)}});
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+$$(".rv").forEach(r=>io.observe(r));
+
+/* AI assistant (demo mode: answers only from verified info below) */
+const KB=[
+[/who|aditya|about|introduce/,"Aditya Singh is a Full Stack Developer and B.Tech Computer Science Engineering student at Sagar Institute of Research and Technology (SIRT), Bhopal, graduating in 2027. He builds web apps with React, Node.js and Python."],
+[/peblo/,"PEBLO TV is a full-stack OTT platform with a responsive Viewer, a CMS for managing content, a FastAPI backend and a PostgreSQL database (Neon). Frontend and backend are deployed on Netlify and Render. It supports search, category and language filtering, and show pages with seasons and episodes."],
+[/project|built|work/,"Aditya has five deployed projects: PEBLO TV (OTT platform), EcoCycle AI (AI waste classification), Game Card (memory game), Patek Philippe (luxury watch website) and EcoCycle (waste management platform). Ask about any one for details."],
+[/ecocycle ai|waste|recycl|eco/,"EcoCycle AI classifies uploaded waste images (JPG, PNG, WEBP) using a TensorFlow/Keras model served through Flask, then gives recycling and disposal guidance. EcoCycle is a separate waste management platform with a scanner, dashboard, government guidelines and a Bhopal bioremediation case study."],
+[/game|card|memory/,"Game Card is a browser-based memory game with card-based gameplay and a score counter."],
+[/patek|watch|luxury/,"Patek Philippe is a luxury watch website concept with a hero section, collection showcase, product cards with pricing and warranty, shipping and returns sections."],
+[/tech|stack|skill|language|tool/,"Frontend: HTML5, CSS3, JavaScript, React.js, TypeScript, Tailwind CSS. Backend: Node.js, Express.js, Python, FastAPI, Flask. Databases: MongoDB, Mongoose, PostgreSQL. Also JWT/bcrypt auth, TensorFlow/Keras, Git, GitHub, Postman, Netlify, Render and Vite."],
+[/\bai\b|machine|learning|tensor|keras|ml/,"Aditya’s AI experience includes EcoCycle AI, where he used Python, TensorFlow and Keras for image classification and integrated the model with a Flask backend."],
+[/contact|email|reach|hire|linkedin|github/,"You can reach Aditya through the contact form on this page"+(CONFIG.email?`, by email at ${CONFIG.email} or ${CONFIG.email2}`:"")+(CONFIG.phone?`, by phone at ${CONFIG.phone}`:"")+(CONFIG.github?`, or on GitHub: ${CONFIG.github}`:"")+"."],
+[/educat|college|study|degree|graduat/,"B.Tech in Computer Science Engineering at SIRT Bhopal, expected graduation 2027."]];
+const SUG=["Who is Aditya Singh?","Tell me about his projects.","What is PEBLO TV?","Which technologies does he use?","What is his experience with AI?","How can I contact him?"];
+const ms=$("#msgs"),ch=$("#chat");
+const tm=()=>new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"});
+function add(t,w){const d=document.createElement("div");d.className="m "+w;d.innerHTML=esc(t)+`<time>${tm()}</time>`;ms.appendChild(d);ms.scrollTop=ms.scrollHeight}
+function reset(){ms.innerHTML="";add("Hi! I can answer questions about Aditya’s background, skills and projects.","b")}
+reset();
+$("#sug").innerHTML=SUG.map(s=>`<button class=chip type=button>${s}</button>`).join("");
+$("#sug").onclick=e=>{if(e.target.matches("button"))ask(e.target.textContent)};
+async function ask(q){q=q.trim();if(!q)return;add(q,"u");$("#ci").value="";
+const ty=document.createElement("div");ty.className="typ";ty.innerHTML="<i></i><i></i><i></i>";ms.appendChild(ty);ms.scrollTop=ms.scrollHeight;
+let a;
+try{if(CONFIG.aiEndpoint){const r=await fetch(CONFIG.aiEndpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message:q})});if(!r.ok)throw 0;a=(await r.json()).reply}
+else{await new Promise(r=>setTimeout(r,650));const k=KB.find(([re])=>re.test(q.toLowerCase()));a=k?k[1]:"I can only answer from the information in this portfolio. Try asking about his projects, skills, education or how to contact him."}}
+catch(e){a="Sorry, the assistant couldn’t be reached. Please try again later or use the contact form."}
+ty.remove();add(a,"b")}
+$("#cform").onsubmit=e=>{e.preventDefault();ask($("#ci").value)};
+$("#clr").onclick=reset;
+const tog=o=>{ch.classList.toggle("open",o);$("#fab").setAttribute("aria-expanded",ch.classList.contains("open"));if(ch.classList.contains("open"))$("#ci").focus()};
+$("#fab").onclick=()=>tog();$("#cx").onclick=()=>tog(false);
+
+/* contact form: no fake success. Opens the visitor's mail app when an email is configured. */
+const F=$("#form"),fm=$("#fm");
+F.onsubmit=e=>{e.preventDefault();const v=Object.fromEntries(new FormData(F));let bad=0;
+const chk={name:v.name.trim()?"":"Enter your name.",email:/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v.email)?"":"Enter a valid email address.",subject:v.subject.trim()?"":"Enter a subject.",message:v.message.trim().length>=10?"":"Write at least 10 characters."};
+$$("label",F).forEach(l=>{const m=chk[l.querySelector("[name]").name];l.querySelector(".er").textContent=m;if(m)bad=1});
+fm.className="";if(bad)return;
+if(!CONFIG.email){fm.className="bad";fm.textContent="Message not sent: no contact email is configured yet.";return}
+location.href=`mailto:${CONFIG.email}?subject=${encodeURIComponent(v.subject)}&body=${encodeURIComponent(v.message+"\n\n— "+v.name+" ("+v.email+")")}`;
+fm.className="ok";fm.textContent="Your email app should now open with the message ready to send."};
+</script>
+</body>
+</html>
